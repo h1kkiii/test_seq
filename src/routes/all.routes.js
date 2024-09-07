@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { createUser } from "../controllers/controllers.js";
-import { createUserSerice } from "../services/user.services.js";
+export const router = Router();
 
-export const userRouter = new Router();
+import { ctrl } from "../controllers/controllers.js";
+import { userService } from "../services/user.services.js";
 
-userRouter.post("/user", createUser, createUserSerice);
+router.post("/User", userService, ctrl.createUser); //
