@@ -1,5 +1,7 @@
 import { bcrypt } from "bcrypt";
 
 export const hashString = async (text) => {
-  return await bcrypt.hash(text, 8);
+  const salt = await bcrypt.genSalt(text);
+
+  return await bcrypt.hash(text, salt);
 };
