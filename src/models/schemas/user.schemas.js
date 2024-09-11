@@ -1,5 +1,5 @@
 import { body } from "express-validator";
-import { User } from "../models/user.model.js";
+import { User } from "../user.model.js";
 
 export const userSchema = [
   body("username")
