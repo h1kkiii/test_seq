@@ -11,7 +11,6 @@ ctrl.createUser = async (req, res) => {
       email,
       password,
     });
-
     // Se guarda en la BD
     await newUser.save();
 
