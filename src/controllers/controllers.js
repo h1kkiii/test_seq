@@ -1,5 +1,7 @@
 import { User } from "../models/user.model.js";
 export const ctrl = {};
+
+//Se crea un usuario
 ctrl.createUser = async (req, res) => {
   const { username, email, password } = req.body;
 
@@ -19,6 +21,7 @@ ctrl.createUser = async (req, res) => {
   }
 };
 
+//Se obtienen todos los usuarios
 ctrl.getUsers = async (req, res) => {
   try {
     const allUsers = await User.findAll();
@@ -30,6 +33,7 @@ ctrl.getUsers = async (req, res) => {
   }
 };
 
+//Se obtiene un usuario por su ID
 ctrl.getUserById = async (req, res) => {
   const { id } = req.params;
   try {
@@ -46,6 +50,7 @@ ctrl.getUserById = async (req, res) => {
   }
 };
 
+//Se actualiza un usuario por su ID
 ctrl.updateUserById = async (req, res) => {
   const { id } = req.params;
   const { username, email, password } = req.body;
@@ -66,6 +71,7 @@ ctrl.updateUserById = async (req, res) => {
   }
 };
 
+//Se elimina un usuario por su ID
 ctrl.deleteUserById = async (req, res) => {
   const { id } = req.params;
 
