@@ -1,4 +1,6 @@
+import { hashString } from "../helper/hashString.js";
 import { User } from "../models/user.model.js";
+import { userService } from "../services/user.services.js";
 export const ctrl = {};
 
 //Se crea un usuario
@@ -6,12 +8,13 @@ ctrl.createUser = async (req, res) => {
   const { username, email, password } = req.body;
 
   try {
+    const hPsS = await userService(password);
     const newUserC = new User({
       username,
       email,
-      password,
+      password: hPsS,
     });
-
+    console.log(newUserC);
     await newUserC.save();
 
     return res.status(201).json({ message: "Usuario creado con éxito" });
